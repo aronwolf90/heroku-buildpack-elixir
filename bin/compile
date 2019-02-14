@@ -21,8 +21,8 @@ source ${build_pack_path}/lib/misc_funcs.sh
 source ${build_pack_path}/lib/erlang_funcs.sh
 source ${build_pack_path}/lib/elixir_funcs.sh
 source ${build_pack_path}/lib/app_funcs.sh
-source ${build_pack_dir}/lib/common.sh
-source ${build_pack_dir}/lib/build.sh
+source ${build_pack_path}/lib/common.sh
+source ${build_pack_path}/lib/build.sh
 
 mkdir $(platform_tools_path)
 
