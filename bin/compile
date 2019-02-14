@@ -21,6 +21,8 @@ source ${build_pack_path}/lib/misc_funcs.sh
 source ${build_pack_path}/lib/erlang_funcs.sh
 source ${build_pack_path}/lib/elixir_funcs.sh
 source ${build_pack_path}/lib/app_funcs.sh
+source ${build_pack_dir}/lib/common.sh
+source ${build_pack_dir}/lib/build.sh
 
 mkdir $(platform_tools_path)
 
@@ -39,6 +41,8 @@ install_elixir
 restore_mix
 install_hex
 install_rebar
+download_node
+install_node
 
 # deprecated_hook, here for backwards compatibility
 pre_compile_hook
@@ -60,11 +64,15 @@ write_export
 # deprecated_hook, here for backwards compatibility
 post_compile_hook
 
-apt-get update -y
-apt-get install nodejs npm -y
-cd assets
-npm install
-npm run deploy
-cd ..
-phx.digest
+export_config_vars
+export_mix_env
 
+download_node
+install_node
+install_npm
+
+if [ -f "$assets_dir/yarn.lock" ]; then
+  install_yarn "$heroku_dir/yarn"
+fi
+
+install_and_cache_deps
