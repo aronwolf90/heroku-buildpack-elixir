@@ -64,15 +64,7 @@ write_export
 # deprecated_hook, here for backwards compatibility
 post_compile_hook
 
-export_config_vars
-export_mix_env
-
 download_node
 install_node
 install_npm
-
-if [ -f "$assets_dir/yarn.lock" ]; then
-  install_yarn "$heroku_dir/yarn"
-fi
-
-install_and_cache_deps
+install_npm_or_yarn
