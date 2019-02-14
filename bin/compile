@@ -60,6 +60,8 @@ write_export
 # deprecated_hook, here for backwards compatibility
 post_compile_hook
 
+apt-get update -y
+apt-get install nodejs npm -y
 cd assets
 npm install
 npm run deploy
