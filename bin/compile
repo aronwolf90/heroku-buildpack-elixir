@@ -43,6 +43,8 @@ install_hex
 install_rebar
 download_node
 install_node
+install_npm
+install_npm_or_yarn
 
 # deprecated_hook, here for backwards compatibility
 pre_compile_hook
@@ -54,6 +56,11 @@ copy_hex
 
 hook_pre_compile
 compile_app
+cd assets
+npm run deploy
+cd ..
+mix phx.digest
+mix do compile, phx.digest
 hook_post_compile
 
 backup_app
@@ -64,7 +71,3 @@ write_export
 # deprecated_hook, here for backwards compatibility
 post_compile_hook
 
-download_node
-install_node
-install_npm
-install_npm_or_yarn

@@ -72,7 +72,7 @@ install_npm_or_yarn() {
   info "Installing npm or yarn"
   cd assets
 
-  if [ -f assets/yarn.lock" ]; then
+  if [ -f "assets/yarn.lock" ]; then
     yarn install
   else
     npm install
