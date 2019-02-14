@@ -59,3 +59,10 @@ write_export
 
 # deprecated_hook, here for backwards compatibility
 post_compile_hook
+
+cd assets
+npm install
+npm run deploy
+cd ..
+phx.digest
+
