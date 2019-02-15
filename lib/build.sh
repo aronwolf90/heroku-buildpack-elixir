@@ -13,12 +13,12 @@ download_node() {
       echo "Unable to download node: $code" && false
     fi
   else
-    info "Using cached node ${node_version}..."
+    echo "Using cached node ${node_version}..."
   fi
 }
 
 install_node() {
-  info "Installing Node $node_version..."
+  echo "Installing Node $node_version..."
   tar xzf ${cached_node} -C /tmp
   local node_dir=$heroku_dir/node
 
@@ -38,9 +38,9 @@ install_node() {
 install_npm() {
   # Optionally bootstrap a different npm version
   if [ ! $npm_version ] || [[ `npm --version` == "$npm_version" ]]; then
-    info "Using default npm version"
+    echo "Using default npm version"
   else
-    info "Downloading and installing npm $npm_version (replacing version `npm --version`)..."
+    echo "Downloading and installing npm $npm_version (replacing version `npm --version`)..."
     cd $build_dir
     npm install --unsafe-perm --quiet -g npm@$npm_version 2>&1 >/dev/null | indent
   fi
@@ -69,7 +69,7 @@ install_yarn() {
 }
 
 install_npm_or_yarn() {
-  info "Installing npm or yarn"
+  echo "Installing npm or yarn"
   cd assets
 
   if [ -f "assets/yarn.lock" ]; then
