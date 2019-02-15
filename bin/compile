@@ -14,6 +14,10 @@ mkdir -p $1 $2 $3
 build_path=$(cd $1 && pwd)
 cache_path=$(cd $2 && pwd)
 env_path=$(cd $3 && pwd)
+build_dir=$build_path
+cache_dir=$cache_path
+
+cached_node=$cache_dir/node-v$node_version-linux-x64.tar.gz
 
 
 source ${build_pack_path}/lib/path_funcs.sh
