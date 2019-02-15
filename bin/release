@@ -5,5 +5,5 @@ cat <<EOF
 addons:
   []
 default_process_types:
-  web: /bin/sh -c "mix ecto.migrate && emix phx.server"
+  web: /bin/sh -c "mix ecto.migrate && mix phx.server"
 EOF
