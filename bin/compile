@@ -16,6 +16,7 @@ cache_path=$(cd $2 && pwd)
 env_path=$(cd $3 && pwd)
 build_dir=$build_path
 cache_dir=$cache_path
+heroku_dir=$build_dir/.heroku
 
 cached_node=$cache_dir/node-v$node_version-linux-x64.tar.gz
 
