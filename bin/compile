@@ -5,6 +5,7 @@
 erlang_changed=false
 rebar_changed=false
 elixir_changed=false
+node_version=11.10.0
 
 build_pack_path=$(cd $(dirname $(dirname $0)); pwd)
 
